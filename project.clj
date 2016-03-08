@@ -48,6 +48,13 @@
                         :compiler {:main       "om-next-tests.core"
                                    :asset-path "js/compiled/out"
                                    :output-to  "resources/public/js/compiled/om_next_tests.js"
+                                   :optimizations :advanced}}
+                       {:id "hosted"
+                        :source-paths ["src"]
+                        :compiler {:main       "om-next-tests.core"
+                                   :devcards true
+                                   :asset-path "."
+                                   :output-to  "om_next_tests.js"
                                    :optimizations :advanced}}]}
 
   :figwheel {:css-dirs ["resources/public/css"]
