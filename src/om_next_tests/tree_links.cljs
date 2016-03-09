@@ -26,7 +26,7 @@
 (defui App
   static om/IQuery
   (query [this]
-    [:parent (om/get-query Parent)]))
+    [{:parent (om/get-query Parent)}]))
 
 (dc/deftest app-test
   (testing "App"
@@ -38,17 +38,10 @@
                   :db/id {1 {:db/id 1 :name "matt"} 2 {:db/id 2 :name "chris"}}
                   :om.next/tables #{:db/id}
                   }))))
-    (comment
-      {:parent
-       {:children
-        {:kids [{:db/id 1, :name "matt"} {:db/id 2, :name "chris"}]}},
-       :om.next/tables #{}})
     (testing "db->tree"
       (let [st {:parent {:children [:children '_]}
                 :children {:kids [[:db/id 1] [:db/id 2]]}
                 :db/id {1 {:db/id 1 :name "matt"} 2 {:db/id 2 :name "chris"}}}
             r (om/db->tree (om/get-query App) st st)]
-        (is (= r {:parent {:children [{:db/id 1 :name "matt"} {:db/id 2 :name "chris"}]}}))))
-    (comment
-      {:parent {:children [:children _]}})
+        (is (= r {:parent {:children {:kids [{:db/id 1 :name "matt"} {:db/id 2 :name "chris"}]}}}))))
     ))
