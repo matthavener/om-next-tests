@@ -28,7 +28,7 @@
 
   :cljsbuild {
               :builds [{:id "devcards"
-                        :source-paths ["src"]
+                        :source-paths ["src" "checkouts/om/src/main"]
                         :figwheel { :devcards true } ;; <- note this
                         :compiler { :main       "om-next-tests.core"
                                     :asset-path "js/compiled/devcards_out"
@@ -36,7 +36,7 @@
                                     :output-dir "resources/public/js/compiled/devcards_out"
                                     :source-map-timestamp true }}
                        {:id "dev"
-                        :source-paths ["src"]
+                        :source-paths ["src" "checkouts/om/src/main"]
                         :figwheel true
                         :compiler {:main       "om-next-tests.core"
                                    :asset-path "js/compiled/out"

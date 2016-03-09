@@ -4,6 +4,7 @@
    [sablono.core :as sab :refer-macros [html]]
    [om-next-tests.merge]
    [om-next-tests.tree-links]
+   [om-next-tests.parser]
    [devcards.core :as dc])
   (:require-macros
    [devcards.core :as dc :refer [defcard deftest]]))
